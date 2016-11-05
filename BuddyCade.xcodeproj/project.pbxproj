@@ -17,6 +17,7 @@
 		87551A731DCD931D009EB28F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 87551A711DCD931D009EB28F /* LaunchScreen.storyboard */; };
 		87551A7E1DCD931D009EB28F /* BuddyCadeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87551A7D1DCD931D009EB28F /* BuddyCadeTests.swift */; };
 		87551A891DCD931D009EB28F /* BuddyCadeUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87551A881DCD931D009EB28F /* BuddyCadeUITests.swift */; };
+		A0CDC27C1DCD9DA700407BCE /* GameKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A0CDC27B1DCD9DA700407BCE /* GameKit.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +54,7 @@
 		87551A841DCD931D009EB28F /* BuddyCadeUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BuddyCadeUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		87551A881DCD931D009EB28F /* BuddyCadeUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BuddyCadeUITests.swift; sourceTree = "<group>"; };
 		87551A8A1DCD931D009EB28F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A0CDC27B1DCD9DA700407BCE /* GameKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GameKit.framework; path = System/Library/Frameworks/GameKit.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,6 +62,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A0CDC27C1DCD9DA700407BCE /* GameKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -87,6 +90,7 @@
 				87551A7C1DCD931D009EB28F /* BuddyCadeTests */,
 				87551A871DCD931D009EB28F /* BuddyCadeUITests */,
 				87551A601DCD931C009EB28F /* Products */,
+				A0CDC27A1DCD9DA700407BCE /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -132,6 +136,14 @@
 				87551A8A1DCD931D009EB28F /* Info.plist */,
 			);
 			path = BuddyCadeUITests;
+			sourceTree = "<group>";
+		};
+		A0CDC27A1DCD9DA700407BCE /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				A0CDC27B1DCD9DA700407BCE /* GameKit.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -204,6 +216,11 @@
 						CreatedOnToolsVersion = 8.1;
 						DevelopmentTeam = GV2PWJVUHM;
 						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.GameCenter = {
+								enabled = 1;
+							};
+						};
 					};
 					87551A781DCD931D009EB28F = {
 						CreatedOnToolsVersion = 8.1;
@@ -526,6 +543,7 @@
 				87551A8F1DCD931D009EB28F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		87551A901DCD931D009EB28F /* Build configuration list for PBXNativeTarget "BuddyCadeTests" */ = {
 			isa = XCConfigurationList;
@@ -534,6 +552,7 @@
 				87551A921DCD931D009EB28F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		87551A931DCD931D009EB28F /* Build configuration list for PBXNativeTarget "BuddyCadeUITests" */ = {
 			isa = XCConfigurationList;
@@ -542,6 +561,7 @@
 				87551A951DCD931D009EB28F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
