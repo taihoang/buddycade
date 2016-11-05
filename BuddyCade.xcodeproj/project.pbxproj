@@ -18,6 +18,7 @@
 		87551A7E1DCD931D009EB28F /* BuddyCadeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87551A7D1DCD931D009EB28F /* BuddyCadeTests.swift */; };
 		87551A891DCD931D009EB28F /* BuddyCadeUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87551A881DCD931D009EB28F /* BuddyCadeUITests.swift */; };
 		A0CDC27C1DCD9DA700407BCE /* GameKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A0CDC27B1DCD9DA700407BCE /* GameKit.framework */; };
+		A0DC19DE1DCDE54900BBDCA5 /* MPCHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0DC19DD1DCDE54900BBDCA5 /* MPCHandler.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -55,6 +56,7 @@
 		87551A881DCD931D009EB28F /* BuddyCadeUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BuddyCadeUITests.swift; sourceTree = "<group>"; };
 		87551A8A1DCD931D009EB28F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A0CDC27B1DCD9DA700407BCE /* GameKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GameKit.framework; path = System/Library/Frameworks/GameKit.framework; sourceTree = SDKROOT; };
+		A0DC19DD1DCDE54900BBDCA5 /* MPCHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MPCHandler.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -86,6 +88,7 @@
 		87551A561DCD931C009EB28F = {
 			isa = PBXGroup;
 			children = (
+				A0DC19DD1DCDE54900BBDCA5 /* MPCHandler.swift */,
 				87551A611DCD931C009EB28F /* BuddyCade */,
 				87551A7C1DCD931D009EB28F /* BuddyCadeTests */,
 				87551A871DCD931D009EB28F /* BuddyCadeUITests */,
@@ -291,6 +294,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				87551A691DCD931C009EB28F /* GameScene.swift in Sources */,
+				A0DC19DE1DCDE54900BBDCA5 /* MPCHandler.swift in Sources */,
 				87551A6B1DCD931C009EB28F /* GameViewController.swift in Sources */,
 				87551A631DCD931C009EB28F /* AppDelegate.swift in Sources */,
 			);

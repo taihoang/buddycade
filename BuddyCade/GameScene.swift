@@ -8,6 +8,7 @@
 
 import SpriteKit
 import GameplayKit
+import MultipeerConnectivity
 
 class GameScene: SKScene {
     
@@ -22,10 +23,11 @@ class GameScene: SKScene {
     var graphs = [String : GKGraph]()
     
     var score = [Int]()
+    //var appDelegate: AppDelegate!
     
     override func sceneDidLoad() {
 
-        
+        //appDelegate = UIApplication.sharedApplication().delegate as AppDelegate
         startGame();
         
         topLabel = self.childNode(withName: "topLabel") as! SKLabelNode
@@ -51,17 +53,35 @@ class GameScene: SKScene {
     func addScore(playerWhoWon: SKSpriteNode) {
         ball.position = CGPoint(x: 0, y: 0)
         ball.physicsBody?.velocity = CGVector(dx: 0, dy: 0)
+        var winnerScore = 0;
         
         if playerWhoWon == main {
             score[0] += 1;
+            winnerScore = score[0]
             ball.physicsBody?.applyImpulse(CGVector(dx: 20, dy: 20))
         }
         else if (playerWhoWon == enemy) {
             score[1] += 1
+            winnerScore = score[1]
             ball.physicsBody?.applyImpulse(CGVector(dx: -20, dy: -20))
         }
         topLabel.text = "\(score[1])"
         bottomLabel.text = "\(score[0])"
+        
+        
+        
+        /*let messageData = ["player": playerWhoWon, "score": winnerScore] as [String : Any]
+        
+        do {
+            let messageDict = JSONSerialization.data(withJSONObject: messageData, options: JSONSerialization.WritingOptions.prettyPrinted)
+        }
+        catch {
+            
+        } 
+        
+        
+        appDelegate.mpcHandler.session.sendData(messageData, toPeers: appDelegate.mpcHandler.session.connectedPeers, withMode: MCSessionSendDataMode.Reliable, error: nil)*/ //----how to get this back to GameViewController.swift??? idk
+        
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
