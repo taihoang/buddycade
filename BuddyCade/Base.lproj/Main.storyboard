@@ -6,6 +6,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11524"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -43,6 +44,24 @@
             </objects>
             <point key="canvasLocation" x="2750" y="-45"/>
         </scene>
+        <!--Winner Screen View Controller-->
+        <scene sceneID="2NV-lY-wOp">
+            <objects>
+                <viewController id="wCQ-EM-T9p" customClass="WinnerScreenViewController" customModule="BuddyCade" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="YrR-3n-sGP"/>
+                        <viewControllerLayoutGuide type="bottom" id="hxE-ci-jvk"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="6ug-W4-GrO">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Kpl-vI-R7r" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3513" y="-53"/>
+        </scene>
         <!--Nickname View Controller-->
         <scene sceneID="Bpv-5g-LQv">
             <objects>
@@ -74,6 +93,7 @@
                                 <state key="normal" title="Button"/>
                                 <connections>
                                     <action selector="confirmNicknameButton:" destination="qkJ-4v-ad9" eventType="touchUpInside" id="cY4-az-hgo"/>
+                                    <segue destination="ggw-Zv-pOn" kind="presentation" id="VCr-JA-GK2"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -111,28 +131,86 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="hgh-iI-b7r">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Game Lobby Screen" translatesAutoresizingMaskIntoConstraints="NO" id="pU8-Dw-2G6">
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    </imageView>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="hgh-iI-b7r" secondAttribute="height" multiplier="375:667" id="BRg-rl-1SB"/>
+                                </constraints>
+                            </scrollView>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hhB-IZ-Cr6">
-                                <rect key="frame" x="164" y="136" width="46" height="30"/>
+                                <rect key="frame" x="146" y="136" width="83" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Button"/>
+                                <state key="normal" title="Sheep Keep"/>
+                                <connections>
+                                    <segue destination="sPz-DA-cKG" kind="presentation" id="dox-2H-n5Q"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="e3D-aX-855">
-                                <rect key="frame" x="164" y="286" width="46" height="30"/>
+                                <rect key="frame" x="153" y="286" width="69" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Button"/>
+                                <state key="normal" title="Nom Nom"/>
+                                <connections>
+                                    <segue destination="sPz-DA-cKG" kind="presentation" id="KyX-RY-tNR"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="phf-TB-FyU">
-                                <rect key="frame" x="164" y="438" width="46" height="30"/>
+                                <rect key="frame" x="156" y="438" width="63" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Button"/>
+                                <state key="normal" title="Wrangler"/>
+                                <connections>
+                                    <segue destination="sPz-DA-cKG" kind="presentation" id="A0j-ZP-scX"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="hgh-iI-b7r" firstAttribute="leading" secondItem="3W7-5k-k7u" secondAttribute="leading" id="7v8-bW-pFu"/>
+                            <constraint firstAttribute="trailing" secondItem="hgh-iI-b7r" secondAttribute="trailing" id="8up-dU-d8B"/>
+                            <constraint firstItem="hgh-iI-b7r" firstAttribute="top" secondItem="3W7-5k-k7u" secondAttribute="top" id="ceo-I2-xh4"/>
+                            <constraint firstItem="891-Yu-mOv" firstAttribute="top" secondItem="hgh-iI-b7r" secondAttribute="bottom" id="w5s-0R-bTf"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="HjI-I2-hTT" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="797.60000000000002" y="-45.42728635682159"/>
+        </scene>
+        <!--Connect View Controller-->
+        <scene sceneID="BaV-64-ZPH">
+            <objects>
+                <viewController id="sPz-DA-cKG" customClass="ConnectViewController" customModule="BuddyCade" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="HAq-4o-8r0"/>
+                        <viewControllerLayoutGuide type="bottom" id="GNn-jS-qRa"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Vsd-rd-YJp">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Wgz-IO-Voz">
+                                <rect key="frame" x="158" y="318" width="59" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Connect"/>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="HjI-I2-hTT" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="z7U-0t-cf1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="862" y="-45"/>
+            <point key="canvasLocation" x="1546" y="-45"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="Game Lobby Screen" width="1242" height="2148"/>
+    </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="dox-2H-n5Q"/>
+    </inferredMetricsTieBreakers>
 </document>

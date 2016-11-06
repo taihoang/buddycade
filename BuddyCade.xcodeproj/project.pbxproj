@@ -19,6 +19,8 @@
 		87551A891DCD931D009EB28F /* BuddyCadeUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87551A881DCD931D009EB28F /* BuddyCadeUITests.swift */; };
 		A0A6DEFD1DCED9B500A2EF82 /* NicknameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0A6DEFC1DCED9B500A2EF82 /* NicknameViewController.swift */; };
 		A0A6DEFF1DCEDD9B00A2EF82 /* GameLobbyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0A6DEFE1DCEDD9B00A2EF82 /* GameLobbyViewController.swift */; };
+		A0A6DF051DCEE82A00A2EF82 /* ConnectViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0A6DF041DCEE82A00A2EF82 /* ConnectViewController.swift */; };
+		A0A6DF071DCEE86D00A2EF82 /* WinnerScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0A6DF061DCEE86D00A2EF82 /* WinnerScreenViewController.swift */; };
 		A0CDC27C1DCD9DA700407BCE /* GameKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A0CDC27B1DCD9DA700407BCE /* GameKit.framework */; };
 		A0DC19DE1DCDE54900BBDCA5 /* MPCHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0DC19DD1DCDE54900BBDCA5 /* MPCHandler.swift */; };
 /* End PBXBuildFile section */
@@ -59,6 +61,8 @@
 		87551A8A1DCD931D009EB28F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A0A6DEFC1DCED9B500A2EF82 /* NicknameViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NicknameViewController.swift; path = ../NicknameViewController.swift; sourceTree = "<group>"; };
 		A0A6DEFE1DCEDD9B00A2EF82 /* GameLobbyViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameLobbyViewController.swift; sourceTree = "<group>"; };
+		A0A6DF041DCEE82A00A2EF82 /* ConnectViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConnectViewController.swift; sourceTree = "<group>"; };
+		A0A6DF061DCEE86D00A2EF82 /* WinnerScreenViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WinnerScreenViewController.swift; sourceTree = "<group>"; };
 		A0CDC27B1DCD9DA700407BCE /* GameKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GameKit.framework; path = System/Library/Frameworks/GameKit.framework; sourceTree = SDKROOT; };
 		A0DC19DD1DCDE54900BBDCA5 /* MPCHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MPCHandler.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -125,6 +129,8 @@
 				87551A711DCD931D009EB28F /* LaunchScreen.storyboard */,
 				87551A741DCD931D009EB28F /* Info.plist */,
 				A0A6DEFE1DCEDD9B00A2EF82 /* GameLobbyViewController.swift */,
+				A0A6DF041DCEE82A00A2EF82 /* ConnectViewController.swift */,
+				A0A6DF061DCEE86D00A2EF82 /* WinnerScreenViewController.swift */,
 			);
 			path = BuddyCade;
 			sourceTree = "<group>";
@@ -299,7 +305,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A0A6DF051DCEE82A00A2EF82 /* ConnectViewController.swift in Sources */,
 				87551A691DCD931C009EB28F /* GameScene.swift in Sources */,
+				A0A6DF071DCEE86D00A2EF82 /* WinnerScreenViewController.swift in Sources */,
 				A0A6DEFF1DCEDD9B00A2EF82 /* GameLobbyViewController.swift in Sources */,
 				A0A6DEFD1DCED9B500A2EF82 /* NicknameViewController.swift in Sources */,
 				A0DC19DE1DCDE54900BBDCA5 /* MPCHandler.swift in Sources */,
