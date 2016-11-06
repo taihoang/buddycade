@@ -12,11 +12,12 @@ import MultipeerConnectivity
 
 class GameScene: SKScene {
     
+    var viewController: GameViewController!
     var GameViewControllerRef = GameViewController();
     var ball = SKSpriteNode();
     var enemy = SKSpriteNode();
     var main = SKSpriteNode();
-    
+   // var background = SKSpriteNode(imageNamed: "gameBackground");
     var topLabel = SKLabelNode();
     var bottomLabel = SKLabelNode();
     
@@ -30,7 +31,8 @@ class GameScene: SKScene {
 
         //appDelegate = UIApplication.sharedApplication().delegate as AppDelegate
         startGame();
-        
+        //background.position = CGPoint(x: frame.size.width/2, y: frame.size.height/2)
+      //  addChild(background)
         topLabel = self.childNode(withName: "topLabel") as! SKLabelNode
         bottomLabel = self.childNode(withName: "bottomLabel") as! SKLabelNode
         
@@ -38,7 +40,7 @@ class GameScene: SKScene {
         main = self.childNode(withName: "bottom") as! SKSpriteNode
         enemy = self.childNode(withName: "top") as! SKSpriteNode
         
-        ball.physicsBody?.applyImpulse(CGVector(dx: 20, dy: 20))
+        ball.physicsBody?.applyImpulse(CGVector(dx: 25, dy: 20))
         
         let border = SKPhysicsBody(edgeLoopFrom: self.frame);
         border.friction = 0;
@@ -53,18 +55,24 @@ class GameScene: SKScene {
     
     func addScore(playerWhoWon: SKSpriteNode) {
         ball.position = CGPoint(x: 0, y: 0)
-        ball.physicsBody?.velocity = CGVector(dx: 0, dy: 0)
+        ball.physicsBody?.velocity = CGVector(dx: 1, dy: 1)
         //var winnerScore = 0;
         
         if playerWhoWon == main {
             score[0] += 1;
             //winnerScore = score[0]
-            ball.physicsBody?.applyImpulse(CGVector(dx: 20, dy: 20))
+            ball.physicsBody?.applyImpulse(CGVector(dx: 30, dy: 20))
         }
         else if (playerWhoWon == enemy) {
             score[1] += 1
             //winnerScore = score[1]
-            ball.physicsBody?.applyImpulse(CGVector(dx: -20, dy: -20))
+            ball.physicsBody?.applyImpulse(CGVector(dx: -20, dy: -30))
+        }
+        
+        if(score[1] >= 3) {
+            self.viewController.performSegue(withIdentifier: "winScreenSegue", sender: self.viewController)
+            //GameViewControllerRef.segueToWin()
+            //GameViewController().performSegue(withIdentifier: "winScreenSegue", sender: GameViewController())
         }
         topLabel.text = "\(score[1])"
         bottomLabel.text = "\(score[0])"
@@ -111,13 +119,6 @@ class GameScene: SKScene {
                 main.run(SKAction.moveTo(x: location.x, duration: 0))
             }
             let messageDict = ["xLoc":location.x]
-            do {
-                let messageData = try JSONSerialization.data(withJSONObject: messageDict, options: JSONSerialization.WritingOptions.prettyPrinted)
-                try GameViewControllerRef.appDelegate.mpcHandler.session.send(messageData, toPeers:GameViewControllerRef.appDelegate.mpcHandler.session.connectedPeers, with: MCSessionSendDataMode.reliable)
-            }
-            catch {
-                print("wtf work pls")
-            }
             
         }
     }
@@ -136,13 +137,19 @@ class GameScene: SKScene {
     }
     
     override func update(_ currentTime: TimeInterval) {
-        enemy.run(SKAction.moveTo(x: ball.position.x, duration: 1.0))
+        if (!(ball.position.x + 100 >= self.frame.width/2 || ball.position.x - 100 <= -self.frame.width/2))
+        {
+            enemy.run(SKAction.moveTo(x: ball.position.x, duration: 0.3))
+
+        }
+
+       // enemy.run(SKAction.moveTo(x: ball.position.x, duration: 0.3))
         
-        if (ball.position.y <= main.position.y - 70) {
+        if (ball.position.y <= main.position.y - 30) {
            addScore(playerWhoWon: enemy)
             
         }
-        else if (ball.position.y >= enemy.position.y + 70) {
+        else if (ball.position.y >= enemy.position.y + 30) {
             addScore(playerWhoWon: main)
             
         }

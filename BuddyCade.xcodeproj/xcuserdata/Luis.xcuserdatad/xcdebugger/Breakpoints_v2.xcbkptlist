@@ -10,11 +10,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "BuddyCade/GameScene.swift"
-            timestampString = "500087257.67136"
+            timestampString = "500109425.295277"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "62"
-            endingLineNumber = "62"
+            startingLineNumber = "64"
+            endingLineNumber = "64"
             landmarkName = "addScore(playerWhoWon:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -56,11 +56,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "BuddyCade/GameScene.swift"
-            timestampString = "500087257.67136"
+            timestampString = "500109425.295277"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "77"
-            endingLineNumber = "77"
+            startingLineNumber = "85"
+            endingLineNumber = "85"
             landmarkName = "addScore(playerWhoWon:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -72,11 +72,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "BuddyCade/GameScene.swift"
-            timestampString = "500087257.67136"
+            timestampString = "500109425.295277"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "84"
-            endingLineNumber = "84"
+            startingLineNumber = "92"
+            endingLineNumber = "92"
             landmarkName = "addScore(playerWhoWon:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -359,13 +359,13 @@
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "BuddyCade/GameScene.swift"
-            timestampString = "500087257.67136"
+            filePath = "BuddyCade/ConnectViewController.swift"
+            timestampString = "500104502.694471"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "120"
-            endingLineNumber = "120"
-            landmarkName = "touchesBegan(_:with:)"
+            startingLineNumber = "19"
+            endingLineNumber = "19"
+            landmarkName = "coonectButton(_:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

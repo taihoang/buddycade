@@ -11,10 +11,12 @@ import SpriteKit
 import GameplayKit
 import MultipeerConnectivity
 
-class GameViewController: UIViewController, MCBrowserViewControllerDelegate {
+class GameViewController: UIViewController {
 
-    
-    var appDelegate:AppDelegate!
+    public func segueToWin() {
+        performSegue(withIdentifier: "winScreenSegue", sender: self);
+    }
+    /*var appDelegate:AppDelegate!
     
     @IBAction func connectWithPlayer(_ sender: Any) {
         if appDelegate.mpcHandler.session != nil {
@@ -39,22 +41,22 @@ class GameViewController: UIViewController, MCBrowserViewControllerDelegate {
         }
     }
     
-    /*func handleReceivedDataWithNotification(notification: NSNotification) {
+    func handleReceivedDataWithNotification(notification: NSNotification) {
         
     }*/
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        appDelegate = UIApplication.shared.delegate as! AppDelegate
+        /*appDelegate = UIApplication.shared.delegate as! AppDelegate
         appDelegate.mpcHandler.setupPeerWithDisplayName(displayName: UIDevice.current.name)
         appDelegate.mpcHandler.setupSession()
         appDelegate.mpcHandler.advertiseSelf(advertise: true)
         
         NotificationCenter.default.addObserver(self, selector: #selector(GameViewController.peerChangedStateWithNotification), name: NSNotification.Name(rawValue: "MPC_DidChangeStateNotification"), object: nil)
         
-        NotificationCenter.default.addObserver(self, selector: #selector(GameScene().handleReceivedDataWithNotification), name: NSNotification.Name(rawValue: "MPC_DidReceiveDataNotification"), object: nil)
-        
+        NotificationCenter.default.addObserver(self, selector: #selector(GameViewController.handleReceivedDataWithNotification), name: NSNotification.Name(rawValue: "MPC_DidReceiveDataNotification"), object: nil)
+        */
         // Load 'GameScene.sks' as a GKScene. This provides gameplay related content
         // including entities and graphs.
         if let scene = GKScene(fileNamed: "GameScene") {
@@ -78,11 +80,14 @@ class GameViewController: UIViewController, MCBrowserViewControllerDelegate {
                     view.showsFPS = true
                     view.showsNodeCount = true
                 }
+                
+                sceneNode.viewController = self
             }
         }
+        
     }
 
-    func browserViewControllerDidFinish(_ browserViewController: MCBrowserViewController) {
+    /*func browserViewControllerDidFinish(_ browserViewController: MCBrowserViewController) {
         appDelegate.mpcHandler.browser.dismiss(animated: true, completion: nil)
     }
     
@@ -90,7 +95,7 @@ class GameViewController: UIViewController, MCBrowserViewControllerDelegate {
         appDelegate.mpcHandler.browser.dismiss(animated: true, completion: nil)
     }
     
-    
+    */
     override var shouldAutorotate: Bool {
         return true
     }

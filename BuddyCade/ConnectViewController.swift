@@ -7,15 +7,64 @@
 //
 
 import UIKit
+import SpriteKit
+import GameplayKit
+import MultipeerConnectivity
 
-class ConnectViewController: UIViewController {
+class ConnectViewController: UIViewController, MCBrowserViewControllerDelegate {
+    
+    var appDelegate:AppDelegate!
 
+    @IBAction func coonectButton(_ sender: Any) {
+        if appDelegate.mpcHandler.session != nil {
+            appDelegate.mpcHandler.setupBrowser()
+            appDelegate.mpcHandler.browser.delegate = self
+            self.present(appDelegate.mpcHandler.browser, animated:true, completion: nil)
+        }
+
+
+    }
+    
+    func peerChangedStateWithNotification(notification:NSNotification) {
+        let userInfo = NSDictionary(dictionary: notification.userInfo!)
+        let state = userInfo.object(forKey: "state") as! Int
+        self.navigationItem.title = "Connected"
+        if (state != MCSessionState.connecting.rawValue) {
+            self.navigationItem.title = "Connected"
+            print(MCSessionState.connecting.rawValue);
+        }
+    }
+
+    func handleReceivedDataWithNotification(notification: NSNotification) {
+        
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        appDelegate = UIApplication.shared.delegate as! AppDelegate
+        appDelegate.mpcHandler.setupPeerWithDisplayName(displayName: UIDevice.current.name)
+        appDelegate.mpcHandler.setupSession()
+        appDelegate.mpcHandler.advertiseSelf(advertise: true)
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(ConnectViewController.peerChangedStateWithNotification), name: NSNotification.Name(rawValue: "MPC_DidChangeStateNotification"), object: nil)
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(ConnectViewController.handleReceivedDataWithNotification), name: NSNotification.Name(rawValue: "MPC_DidReceiveDataNotification"), object: nil)
 
         // Do any additional setup after loading the view.
     }
 
+    func browserViewControllerDidFinish(_ browserViewController: MCBrowserViewController) {
+        appDelegate.mpcHandler.browser.dismiss(animated: true, completion: nil)
+        //self.storyboard?.instantiateViewController(withIdentifier: "GameViewController")
+        performSegue(withIdentifier: "gameView", sender: self)
+    }
+    
+    func browserViewControllerWasCancelled(_ browserViewController: MCBrowserViewController) {
+        appDelegate.mpcHandler.browser.dismiss(animated: true, completion: nil)
+    }
+
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
