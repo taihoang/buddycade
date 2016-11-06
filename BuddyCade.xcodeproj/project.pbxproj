@@ -17,6 +17,8 @@
 		87551A731DCD931D009EB28F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 87551A711DCD931D009EB28F /* LaunchScreen.storyboard */; };
 		87551A7E1DCD931D009EB28F /* BuddyCadeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87551A7D1DCD931D009EB28F /* BuddyCadeTests.swift */; };
 		87551A891DCD931D009EB28F /* BuddyCadeUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87551A881DCD931D009EB28F /* BuddyCadeUITests.swift */; };
+		A0A6DEFD1DCED9B500A2EF82 /* NicknameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0A6DEFC1DCED9B500A2EF82 /* NicknameViewController.swift */; };
+		A0A6DEFF1DCEDD9B00A2EF82 /* GameLobbyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0A6DEFE1DCEDD9B00A2EF82 /* GameLobbyViewController.swift */; };
 		A0CDC27C1DCD9DA700407BCE /* GameKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A0CDC27B1DCD9DA700407BCE /* GameKit.framework */; };
 		A0DC19DE1DCDE54900BBDCA5 /* MPCHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0DC19DD1DCDE54900BBDCA5 /* MPCHandler.swift */; };
 /* End PBXBuildFile section */
@@ -55,6 +57,8 @@
 		87551A841DCD931D009EB28F /* BuddyCadeUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BuddyCadeUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		87551A881DCD931D009EB28F /* BuddyCadeUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BuddyCadeUITests.swift; sourceTree = "<group>"; };
 		87551A8A1DCD931D009EB28F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A0A6DEFC1DCED9B500A2EF82 /* NicknameViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NicknameViewController.swift; path = ../NicknameViewController.swift; sourceTree = "<group>"; };
+		A0A6DEFE1DCEDD9B00A2EF82 /* GameLobbyViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameLobbyViewController.swift; sourceTree = "<group>"; };
 		A0CDC27B1DCD9DA700407BCE /* GameKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GameKit.framework; path = System/Library/Frameworks/GameKit.framework; sourceTree = SDKROOT; };
 		A0DC19DD1DCDE54900BBDCA5 /* MPCHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MPCHandler.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -110,6 +114,7 @@
 		87551A611DCD931C009EB28F /* BuddyCade */ = {
 			isa = PBXGroup;
 			children = (
+				A0A6DEFC1DCED9B500A2EF82 /* NicknameViewController.swift */,
 				87551A621DCD931C009EB28F /* AppDelegate.swift */,
 				87551A641DCD931C009EB28F /* GameScene.sks */,
 				87551A661DCD931C009EB28F /* Actions.sks */,
@@ -119,6 +124,7 @@
 				87551A6F1DCD931D009EB28F /* Assets.xcassets */,
 				87551A711DCD931D009EB28F /* LaunchScreen.storyboard */,
 				87551A741DCD931D009EB28F /* Info.plist */,
+				A0A6DEFE1DCEDD9B00A2EF82 /* GameLobbyViewController.swift */,
 			);
 			path = BuddyCade;
 			sourceTree = "<group>";
@@ -294,6 +300,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				87551A691DCD931C009EB28F /* GameScene.swift in Sources */,
+				A0A6DEFF1DCEDD9B00A2EF82 /* GameLobbyViewController.swift in Sources */,
+				A0A6DEFD1DCED9B500A2EF82 /* NicknameViewController.swift in Sources */,
 				A0DC19DE1DCDE54900BBDCA5 /* MPCHandler.swift in Sources */,
 				87551A6B1DCD931C009EB28F /* GameViewController.swift in Sources */,
 				87551A631DCD931C009EB28F /* AppDelegate.swift in Sources */,
