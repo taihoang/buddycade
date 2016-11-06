@@ -21,7 +21,8 @@ class MPCHandler: NSObject, MCSessionDelegate {
     }
     
     func setupSession() {
-        session = MCSession(peer: peerID)
+        //session = MCSession(peer: peerID)
+        session = MCSession(peer: peerID, securityIdentity: nil, encryptionPreference: MCEncryptionPreference.optional)
         session.delegate = self
     }
     
@@ -43,14 +44,19 @@ class MPCHandler: NSObject, MCSessionDelegate {
     func session(_ session: MCSession, peer peerID: MCPeerID, didChange state: MCSessionState) {
         let userInfo = ["peerID": peerID, "state":state.rawValue] as [String : Any]
         DispatchQueue.main.async(execute: { () -> Void in
-            NotificationCenter.default.post(name: NSNotification.Name(rawValue:"MPC_DidChangeStateNotification"), object:nil)
+           // NotificationCenter.default.post(name: NSNotification.Name(rawValue:"MPC_DidChangeStateNotification"), object:nil)
+        
+            //NotificationCenter.default.post(name: Notification.Name("MPC_DidChangeStateNotification"), object:nil, userInfo: userInfo)
+            //NotificationCenter.default.post(name: NSNotification.Name(rawValue: "MPC_DidChangeStateNotification"), object: nil)
+            NotificationCenter.default.post(name: NSNotification.Name("MPC_DidChangeStateNotification"), object: nil, userInfo: userInfo)
+           
         })
     }
     
     func session(_ session: MCSession, didReceive data: Data, fromPeer peerID: MCPeerID) {
         let userInfo = ["data": data, "peerID":peerID] as [String : Any]
         DispatchQueue.main.async(execute: { () -> Void in
-            NotificationCenter.default.post(name: NSNotification.Name(rawValue:"MPC_DidReceiveDataNotification"), object:nil)
+            NotificationCenter.default.post(name: NSNotification.Name(rawValue:"MPC_DidReceiveDataNotification"), object:nil, userInfo: userInfo)
         })
     }
     

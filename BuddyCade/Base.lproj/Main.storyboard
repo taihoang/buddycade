@@ -28,7 +28,7 @@
                                     <navigationItem title="Title" id="xU3-pX-McY">
                                         <barButtonItem key="rightBarButtonItem" title="Connect" id="b4d-3f-F0i">
                                             <connections>
-                                                <action selector="connectWithPlayer:" destination="BV1-FR-VrT" id="GrO-4T-zAw"/>
+                                                <action selector="connectWithPlayer:" destination="BV1-FR-VrT" id="LJR-vL-CV7"/>
                                             </connections>
                                         </barButtonItem>
                                     </navigationItem>

@@ -12,6 +12,7 @@ import MultipeerConnectivity
 
 class GameScene: SKScene {
     
+    var GameViewControllerRef = GameViewController();
     var ball = SKSpriteNode();
     var enemy = SKSpriteNode();
     var main = SKSpriteNode();
@@ -53,16 +54,16 @@ class GameScene: SKScene {
     func addScore(playerWhoWon: SKSpriteNode) {
         ball.position = CGPoint(x: 0, y: 0)
         ball.physicsBody?.velocity = CGVector(dx: 0, dy: 0)
-        var winnerScore = 0;
+        //var winnerScore = 0;
         
         if playerWhoWon == main {
             score[0] += 1;
-            winnerScore = score[0]
+            //winnerScore = score[0]
             ball.physicsBody?.applyImpulse(CGVector(dx: 20, dy: 20))
         }
         else if (playerWhoWon == enemy) {
             score[1] += 1
-            winnerScore = score[1]
+            //winnerScore = score[1]
             ball.physicsBody?.applyImpulse(CGVector(dx: -20, dy: -20))
         }
         topLabel.text = "\(score[1])"
@@ -84,6 +85,23 @@ class GameScene: SKScene {
         
     }
     
+    func handleReceivedDataWithNotification(notification: NSNotification) {
+        let userInfo = notification.userInfo! as Dictionary
+        
+        do {
+            let receivedData:NSData =  userInfo["data"] as! NSData
+            let message = try JSONSerialization.jsonObject(with: receivedData as Data, options: JSONSerialization.ReadingOptions.allowFragments) as! NSDictionary
+            let senderPeerId: MCPeerID = userInfo["peerID"] as! MCPeerID
+            let senderDisplayName = senderPeerId.displayName
+        
+            print(message)
+            
+        } catch {
+            print("wat")
+        }
+        
+    }
+    
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         for touch in touches {
             let location = touch.location(in: self)
@@ -92,6 +110,15 @@ class GameScene: SKScene {
             {
                 main.run(SKAction.moveTo(x: location.x, duration: 0))
             }
+            let messageDict = ["xLoc":location.x]
+            do {
+                let messageData = try JSONSerialization.data(withJSONObject: messageDict, options: JSONSerialization.WritingOptions.prettyPrinted)
+                try GameViewControllerRef.appDelegate.mpcHandler.session.send(messageData, toPeers:GameViewControllerRef.appDelegate.mpcHandler.session.connectedPeers, with: MCSessionSendDataMode.reliable)
+            }
+            catch {
+                print("wtf work pls")
+            }
+            
         }
     }
     

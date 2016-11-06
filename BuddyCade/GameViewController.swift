@@ -13,6 +13,7 @@ import MultipeerConnectivity
 
 class GameViewController: UIViewController, MCBrowserViewControllerDelegate {
 
+    
     var appDelegate:AppDelegate!
     
     @IBAction func connectWithPlayer(_ sender: Any) {
@@ -21,6 +22,7 @@ class GameViewController: UIViewController, MCBrowserViewControllerDelegate {
             appDelegate.mpcHandler.browser.delegate = self
             self.present(appDelegate.mpcHandler.browser, animated:true, completion: nil)
         }
+
     }
     
     public func sendData() {
@@ -30,15 +32,16 @@ class GameViewController: UIViewController, MCBrowserViewControllerDelegate {
     func peerChangedStateWithNotification(notification:NSNotification) {
         let userInfo = NSDictionary(dictionary: notification.userInfo!)
         let state = userInfo.object(forKey: "state") as! Int
-        
+        self.navigationItem.title = "Connected"
         if (state != MCSessionState.connecting.rawValue) {
             self.navigationItem.title = "Connected"
+            print(MCSessionState.connecting.rawValue);
         }
     }
     
-    func handleReceiveDataWithNotification(notification: NSNotification) {
+    /*func handleReceivedDataWithNotification(notification: NSNotification) {
         
-    }
+    }*/
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -48,9 +51,9 @@ class GameViewController: UIViewController, MCBrowserViewControllerDelegate {
         appDelegate.mpcHandler.setupSession()
         appDelegate.mpcHandler.advertiseSelf(advertise: true)
         
-        NotificationCenter.default.addObserver(self, selector: Selector(("peerChangedStateWithNotification")), name: NSNotification.Name(rawValue: "MPC_DidChangeStateNotification"), object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(GameViewController.peerChangedStateWithNotification), name: NSNotification.Name(rawValue: "MPC_DidChangeStateNotification"), object: nil)
         
-        NotificationCenter.default.addObserver(self, selector: Selector(("handleReceivedDataWithNotification")), name: NSNotification.Name(rawValue: "MPC_DidReceiveDataNotification"), object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(GameScene().handleReceivedDataWithNotification), name: NSNotification.Name(rawValue: "MPC_DidReceiveDataNotification"), object: nil)
         
         // Load 'GameScene.sks' as a GKScene. This provides gameplay related content
         // including entities and graphs.
